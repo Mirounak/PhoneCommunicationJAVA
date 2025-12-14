@@ -11,6 +11,28 @@ public class MobilePhone {
     private Ram ram;
     private SimCard simCard;
     
+    // Overloaded constructor to match TestMobilePhone usage
+    // Signature: (int, int, double, String, String, String, float, String, int)
+    // Mapping:
+    //  - c: RAM capacity (GB)
+    //  - f: RAM frequency (GHz) [int provided, cast to double]
+    //  - fr: Processor frequency (GHz)
+    //  - Os: Operating system
+    //  - brand, model, ScreenSize
+    //  - m: Processor model/name
+    //  - CamReso: Camera resolution (MP)
+    public MobilePhone(int c, int f, double fr, String Os, String brand, String model,
+                       float ScreenSize, String m, int CamReso) {
+        this.brand = brand;
+        this.model = model;
+        this.ScreenSize = ScreenSize;
+        this.Os = Os;
+        this.CamReso = CamReso;
+        this.processor = new Processor(m, fr);
+        this.ram = new Ram(c, (double) f);
+        this.simCard = null;
+    }
+
     public MobilePhone(int c,int f, double fr, String m, String brand, String model, float ScreenSize, String Os, int CamReso,SimCard simCard) {
         this.brand = brand;
         this.model = model;
